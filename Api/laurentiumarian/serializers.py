@@ -11,7 +11,7 @@ class CustomAppsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Apps
-        fields = ['app', 'name', 'type', 'img' ]
+        fields = ['app', 'name', 'type', 'img', 'content' ]
 
 class AppsSerializer(serializers.ModelSerializer):
     class Meta:

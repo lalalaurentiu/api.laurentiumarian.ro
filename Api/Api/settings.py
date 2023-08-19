@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-pq3+kev5b2$6l*bvpwy14a6y$40txenavp)-a(f1qqr+b%gyzj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.0.156']
 
 
 # Application definition
@@ -53,11 +53,12 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # Adăugați aici originile permise
-    "https://example.com",
+    "http://192.168.0.156:3000",
+    "http://192.168.0.156:8000",
 ]
-
 
 ROOT_URLCONF = 'Api.urls'
 
@@ -126,6 +127,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
