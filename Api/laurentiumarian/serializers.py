@@ -7,7 +7,8 @@ class NavAppsSerializer(serializers.ModelSerializer):
         fields = ['name']
 
 class CustomAppsSerializer(serializers.ModelSerializer):
-    app = NavAppsSerializer()  # Utilizați serializatorul NavAppsSerializer pentru câmpul 'app'
+    app = NavAppsSerializer()
+
 
     class Meta:
         model = Apps
@@ -16,4 +17,4 @@ class CustomAppsSerializer(serializers.ModelSerializer):
 class AppsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Apps
-        fields = '__all__'
+        fields = ['name', 'type', 'img', 'content']
