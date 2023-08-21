@@ -18,3 +18,10 @@ class Apps(models.Model):
     content = models.TextField(null=True, blank=True)
     def __str__(self):
         return self.name
+    
+class Notifications (models.Model):
+    name = models.CharField(max_length=100)
+    img = models.FileField(upload_to='static/images', null=True, blank=True, default=None)
+    content = models.TextField(null=True, blank=True)
+    def __str__(self):
+        return self.name

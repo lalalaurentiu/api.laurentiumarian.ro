@@ -8,17 +8,17 @@ class AppsView(APIView):
         queryset = Apps.objects.all()
         serializer = CustomAppsSerializer(queryset, many=True)
 
-        data = [
-            {
+        data = [{
                 "NavApps": [],
-                "LaunchPad": []
-            }
-        ]
+                "LaunchPad": [],
+                "Notifications": []
+            }]
 
         for app in serializer.data:
             try:
-                img = "http://192.168.0.156:8000" + app["img"]
-                app["img"] = img
+                if app["img"] != None:
+                    img = "http://192.168.0.156:8000" + app["img"]
+                    app["img"] = img
                 for i in range(len(data[0]["NavApps"])):
                     
                     if data[0]["NavApps"][i]["name"] == app["app"]["name"]:
@@ -36,13 +36,22 @@ class AppsView(APIView):
         serializer = AppsSerializer(queryset, many=True)
 
         for app in serializer.data:
-            img = "http://192.168.0.156:8000" + app["img"]
+            try:
+                img = "http://192.168.0.156:8000" + app["img"]
+            except:
+                img = None
             app["img"] = img
             data[0]["LaunchPad"].append(app)
 
+        queryset = Notifications.objects.all()
+        serializer = NotificationsSerializer(queryset, many=True)
 
-        return Response(
-            data,
-            status=200
+        for app in serializer.data:
+            try:
+                img = "http://192.168.0.156:8000" + app["img"]
+            except:
+                img = None
+            app["img"] = img
+            data[0]["Notifications"].append(app)
 
-        )
+        return Response(data,status=200)

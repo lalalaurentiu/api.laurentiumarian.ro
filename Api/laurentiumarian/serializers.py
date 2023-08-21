@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import NavApps, Apps
+from .models import *
 
 class NavAppsSerializer(serializers.ModelSerializer):
     class Meta:
@@ -18,3 +18,8 @@ class AppsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Apps
         fields = ['name', 'type', 'img', 'content']
+
+class NotificationsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Notifications
+        fields = ['name', 'img', 'content']
