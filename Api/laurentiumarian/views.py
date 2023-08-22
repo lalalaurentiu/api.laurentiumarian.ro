@@ -17,7 +17,7 @@ class AppsView(APIView):
         for app in serializer.data:
             try:
                 if app["img"] != None:
-                    img = "http://192.168.0.156:8000" + app["img"]
+                    img = "https://api.laurentiumarian.ro" + app["img"]
                     app["img"] = img
                 for i in range(len(data[0]["NavApps"])):
                     
@@ -37,7 +37,7 @@ class AppsView(APIView):
 
         for app in serializer.data:
             try:
-                img = "http://192.168.0.156:8000" + app["img"]
+                img = "https://api.laurentiumarian.ro" + app["img"]
             except:
                 img = None
             app["img"] = img
@@ -48,7 +48,7 @@ class AppsView(APIView):
 
         for app in serializer.data:
             try:
-                img = "http://192.168.0.156:8000" + app["img"]
+                img = "https://api.laurentiumarian.ro" + app["img"]
             except:
                 img = None
             app["img"] = img
