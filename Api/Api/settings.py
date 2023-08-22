@@ -27,6 +27,7 @@ SECRET_KEY = 'django-insecure-pq3+kev5b2$6l*bvpwy14a6y$40txenavp)-a(f1qqr+b%gyzj
 DEBUG = True
 
 ALLOWED_HOSTS = ['192.168.0.156', 'api.laurentiumarian.ro',]
+CSRF_TRUSTED_ORIGINS = ['https://api.laurentiumarian.ro',]
 
 
 # Application definition
@@ -56,9 +57,9 @@ MIDDLEWARE = [
 
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # Adăugați aici originile permise
+    "http://localhost:3000", 
     "http://192.168.0.156:3000",
-    "http://192.168.0.156:8000",
+    "https://api.laurentiumarian.ro",
 ]
 
 ROOT_URLCONF = 'Api.urls'
