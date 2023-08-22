@@ -60,6 +60,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000", 
     "http://192.168.0.156:3000",
     "https://api.laurentiumarian.ro",
+    "https://test-portofolio.netlify.app/"
 ]
 
 ROOT_URLCONF = 'Api.urls'
