@@ -4,14 +4,15 @@ from .serializers import *
 from .models import *
 
 class AppsView(APIView):
-    def get(self, request):
+    def get(self, request, format=None):
         queryset = Apps.objects.all()
         serializer = CustomAppsSerializer(queryset, many=True)
 
         data = [{
                 "NavApps": [],
                 "LaunchPad": [],
-                "Notifications": []
+                "Notifications": [],
+                "Description": []
             }]
 
         for app in serializer.data:
@@ -53,5 +54,10 @@ class AppsView(APIView):
                 img = None
             app["img"] = img
             data[0]["Notifications"].append(app)
+
+        queryset = Description.objects.all()
+        serializer = DescriptionSerializer(queryset, many=True)
+        for app in serializer.data:
+            data[0]["Description"].append(app["data"])
 
         return Response(data,status=200)

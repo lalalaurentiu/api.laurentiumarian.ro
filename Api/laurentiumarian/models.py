@@ -19,6 +19,14 @@ class Apps(models.Model):
     def __str__(self):
         return self.name
     
+class Description (models.Model):
+    app = models.ForeignKey(Apps, on_delete=models.CASCADE, null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
+    code = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        return self.app.name
+    
 class Notifications (models.Model):
     name = models.CharField(max_length=100)
     img = models.FileField(upload_to='static/images', null=True, blank=True, default=None)
